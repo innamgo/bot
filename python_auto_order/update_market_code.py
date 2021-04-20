@@ -37,3 +37,26 @@ cur.execute(insert_market_code_query)
 conn.commit()
 cur.close()
 conn.close()
+
+
+"""
+min_price	max_price	order_unit
+ 2,000,000 	 99,999,999,999 	 1,000 
+ 1,000,000 	 2,000,000 	 500 
+ 500,000 	 1,000,000 	 100 
+ 100,000 	 500,000 	 50 
+ 10,000 	 100,000 	 10 
+ 1,000 	 10,000 	 5 
+ 100 	 1,000 	 1 
+ 10 	 100 	 0.1 
+ - 	 10 	 0.01 
+"""
+"""
+def set_auto_order(market_name):
+    auto_order_insert = f"""
+    insert into code_group (group_name , code_key , code_value_char_1, code_value_int_1)
+    values ('auto_order', {market_name}, 'on',1)
+    """
+    cur.execute(auto_order_insert)
+    conn.commit()
+"""
