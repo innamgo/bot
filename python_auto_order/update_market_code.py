@@ -21,8 +21,8 @@ insert into code_group(group_name ,code_key ,code_value_char_1)
 	from crawling_upbit_fact
 	) aa
 """
-host_address = 'ec2-52-78-17-156.ap-northeast-2.compute.amazonaws.com'
-conn = psycopg2.connect(host=host_address, dbname='botdb', user='coinbot', password='Mzc!1025', port='5432')
+host_address = ''
+conn = psycopg2.connect(host=host_address, dbname='botdb', user='coinbot', password='', port='5432')
 cur = conn.cursor()
 print(delete_market_json_query)
 cur.execute(delete_market_json_query)
