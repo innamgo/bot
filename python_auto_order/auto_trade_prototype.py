@@ -68,7 +68,8 @@ def delete_auto_trade_market(code_key):
 
 def insert_trade_transaction_log(transaction_type, market_code, order_result):
     insert_trade_transaction_log_query = f"""
-    insert into trade_transaction_log ('{transaction_type}', '{market_code}', '{order_result}')
+    insert into trade_transaction_log (transaction_type, market_coin, response_json)
+    values ('{transaction_type}', '{market_code}', '{order_result}')
     """
     logger.info(insert_trade_transaction_log_query)
     cur.execute(insert_trade_transaction_log_query)
