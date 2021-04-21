@@ -6,6 +6,7 @@ import time
 from time import sleep
 import logging.handlers
 import logging
+import traceback
 
 log_handlers = [logging.handlers.RotatingFileHandler(filename='/home/coinbot/log.txt', maxBytes=1024*1024*10), logging.StreamHandler()]
 logging.basicConfig(level = logging.INFO, format = '%(asctime)s [%(levelname)s] : %(message)s', handlers = log_handlers)
@@ -107,6 +108,7 @@ while True:
         sleep(wait_second)
     except Exception as ex:
         logger.error(str(ex))
+	traceback.print_exc()
 
 cur.close()
 conn.close()
