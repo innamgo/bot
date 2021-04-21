@@ -142,3 +142,15 @@ while True:
 cur.close()
 conn.close()
 
+"""
+
+
+insert into code_group (group_name , code_key , code_value_char_1, code_value_int_1)
+select 'auto_order_except', 'KRW-'||currency , 'on', 1
+from( 
+select replace(cast(aaa.ele->'currency' as varchar),'"','') as currency, replace(cast(aaa.ele->'balance' as varchar),'"','') as balance
+   , replace(cast(aaa.ele->'avg_buy_price' as varchar),'"','') as price
+from 
+(select JSON_ARRAY_ELEMENTS(response_json)  ele from crawling_upbit_fact where sequence_number=3) aaa
+) bbb;
+"""
