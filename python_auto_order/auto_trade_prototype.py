@@ -104,11 +104,11 @@ while True:
                     insert_trade_transaction_log('cancel', auto_trade[0], cancel_order_result)
                     delete_auto_trade_market(auto_trade[0])
                     loop_auto_trade_second = 0
-        logger.debug('waiting seconds : ' + wait_second)
+        logger.debug('waiting seconds : ' + str(wait_second))
         sleep(wait_second)
     except Exception as ex:
         logger.error(str(ex))
-	traceback.print_exc()
+        traceback.print_exc()
 
 cur.close()
 conn.close()
