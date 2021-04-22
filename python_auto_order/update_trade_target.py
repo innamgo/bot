@@ -153,4 +153,12 @@ select replace(cast(aaa.ele->'currency' as varchar),'"','') as currency, replace
 from 
 (select JSON_ARRAY_ELEMENTS(response_json)  ele from crawling_upbit_fact where sequence_number=3) aaa
 ) bbb;
+
+
+
+select sum(cast(replace(cast(response_json ->'price' as varchar),'"','') as float))
+from trade_transaction_log where transaction_type ='buy';
+-
+select sum(cast(replace(cast(response_json ->'price' as varchar),'"','') as float))
+from trade_transaction_log where transaction_type ='sell';
 """
